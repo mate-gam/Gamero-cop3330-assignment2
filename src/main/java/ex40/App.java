@@ -57,11 +57,13 @@ public class App
         for (int i = 0; i < 6; i++)
         {
             int check = 0;
+            //adds index if it contains
             if (dataSet.get(i).get("First Name").contains(search))
             {
                 array.add(i);
-                check++;
+                check++;//doesnt check last name if first is valid
             }
+            //last name
             if (check == 0 && dataSet.get(i).get("Last Name").contains(search))
             {
                 array.add(i);
@@ -73,15 +75,18 @@ public class App
     {
         Scanner sc = new Scanner(System.in);
         App app = new App();
+        //input and printing
         List<Map<String, String>> dataSet = new ArrayList<Map<String,String>>();
         System.out.print("Enter a search string: ");
         String search = sc.nextLine();
         dataSet = app.addDataSet(dataSet);
         ArrayList<Integer> indexOfString = new ArrayList<Integer>();
         indexOfString = app.arrayOfIndex(dataSet, indexOfString, search);
+        //String formatting
         String format = "%-21s|%-20s|%-20s\n";//formatting
         System.out.format(format + "---------------------|--------------------" +
                 "|---------------\n", "Name", "Position", "Separation Date");
+        //Printing all the names
         for (int i = 0; i < indexOfString.size(); i++)
         {
             String formatTheList = "%-20s |%-20s|%-20s\n";//formatting
