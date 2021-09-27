@@ -1,0 +1,13 @@
+@startuml
+
+start
+
+repeat
+    :input integer;
+    :read integer;
+    :add integer to total;
+repeat while (less than 5 time?) is (yes)
+->no;
+stop
+
+@enduml
