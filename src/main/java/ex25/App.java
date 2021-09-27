@@ -1,13 +1,17 @@
+/*
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
+ *  Copyright 2021 Mateo Gamero
+ */
 package ex25;
-import java.io.Console;
 import java.util.Scanner;
-import java.util.regex.Pattern;
+
 
 public class App
 {
     String passwordValidator(String password)
     {
         int digits = 0, character = 0, special = 0;
+        //gets the info about the password
         for(int i = 0; i<password.length();i++)
         {
             if(Character.isDigit(password.charAt(i)))
@@ -23,6 +27,7 @@ public class App
                 special++;
             }
         }
+        //returns the correct String
         if (password.length() == digits)
         {
             return String.format("The password '%s' is a very weak password.",password);
@@ -43,7 +48,7 @@ public class App
     public static void main (String[] args)
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("enter: ");
+        System.out.println("Enter a password: ");//Console doesnt work with testing
         //Console con = System.console();
         //String password = con.readLine("Please enter a password: ");
         String password = sc.next();

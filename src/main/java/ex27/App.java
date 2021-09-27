@@ -1,3 +1,7 @@
+/*
+ *  UCF COP3330 Fall 2021 Assignment 2 Solution
+ *  Copyright 2021 Mateo Gamero
+ */
 package ex27;
 import java.util.Scanner;
 public class App
@@ -17,6 +21,7 @@ public class App
     boolean validateID(String employeeID)
     {
         int len = employeeID.length();
+        //checks for format AA-1234
         if (!Character.isLetter(employeeID.charAt(0)))
         {
             return false;
@@ -40,6 +45,7 @@ public class App
     }
     boolean validateZip(String zip)
     {
+        //checks for 5 digits
         if (zip.length() != 5)
         {
             return false;
@@ -56,6 +62,7 @@ public class App
     String validateInput(String firstName, String lastName, String zip, String employeeID) {
         String output = "";
         int errors = 0;
+        //adds error to the output String
         if (stringSize(firstName)) {
             output += "The first name must be at least 2 characters long.\n";
             errors += 1;
@@ -88,6 +95,7 @@ public class App
     public static void main(String[] arg)
     {
         Scanner sc = new Scanner(System.in);
+        //input
         System.out.print("Enter the first name: ");
         String firstName = sc.nextLine();
         System.out.print("Enter the last name: ");
