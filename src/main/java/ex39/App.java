@@ -13,6 +13,7 @@ public class App
 {
     List<Map<String,String>> addDataSet(List<Map<String, String>> dataSet)
     {
+        //adds values to the dataSet
         Map<String, String> d1 = new HashMap<String, String>();
         d1.put("First Name", "John");
         d1.put("Last Name", "Johnson");
@@ -56,6 +57,7 @@ public class App
 
     String[] compareDataSet(List<Map<String, String>> dataSet)
     {
+        //makes an array of last name and then sorts them
         String temp = "";
         String[] order = new String[6];
         for (int i = 0; i < 6; i++)
@@ -80,21 +82,21 @@ public class App
     {
         List<Map<String, String>> dataSet = new ArrayList<Map<String,String>>();
         App app = new App();
-        dataSet = app.addDataSet(dataSet);
-        String[] orderNames = new String[6];
+        dataSet = app.addDataSet(dataSet);//gives it its values
+        String[] orderNames;
         orderNames = app.compareDataSet(dataSet);
-        String format = "%-21s|%-20s|%-20s\n";
+        String format = "%-21s|%-20s|%-20s\n";//formatting
         System.out.format(format + "---------------------|--------------------" +
                 "|---------------\n", "Name", "Position", "Separation Date");
 
-
+        //prints when equal to the sorted last name array
         for(int i = 0; i < 6; i++)
         {
             for(int j = 0; j < 6; j++)
             {
                 if (Objects.equals(orderNames[i], dataSet.get(j).get("Last Name")))
                 {
-                    String formatTheList = "%-20s |%-20s|%-20s\n";
+                    String formatTheList = "%-20s |%-20s|%-20s\n";//formatting
                     System.out.format(formatTheList, dataSet.get(j).get("First Name") + " " + dataSet.get(j).get("Last Name"),
                             dataSet.get(j).get("Position"), dataSet.get(j).get("Separation Date"));
                     break;
